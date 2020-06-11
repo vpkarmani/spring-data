@@ -27,19 +27,19 @@ public class SpringDataJdbcApplication implements CommandLineRunner {
   public void run(String... args) throws Exception {
     repository.deleteAll();
 
-    // save a couple of customers
+    // save few accounts
     repository.save(new Account("123456", Account.Type.SAVINGS, Double.valueOf(100)));
     repository.save(new Account("567890", Account.Type.CHECKING, Double.valueOf(200)));
     repository.save(new Account("456743", Account.Type.SAVINGS, Double.valueOf(50)));
 
-    // fetch all customers
+    // fetch all accounts
     System.out.println("Accounts found with findAll():");
     System.out.println("-------------------------------");
     for (final Account account : repository.findAll()) {
       System.out.println(account);
     }
 
-    // fetch an individual customer
+    // fetch an individual account
     System.out.println("Account found with findByAccountNumber('123456'):");
     System.out.println("--------------------------------");
     System.out.println(repository.findByAccountNumber("123456"));
